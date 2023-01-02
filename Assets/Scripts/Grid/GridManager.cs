@@ -12,11 +12,22 @@ namespace TetrisBlast.Grid
     [ExecuteInEditMode]
     public class GridManager : MonoBehaviour
     {
+        public static GridManager GlobalAccess { get; private set; } = null;
         [field: SerializeField] public GridData gridData { get; private set; } = new GridData();
         
-        public void Start()
+        private GameObject currentGrid;
+
+        public void Awake()
         {
-            
+            GlobalAccess = this;
+        }
+
+        public void ReBuild()
+        {
+            if (currentGrid != null)
+                DestroyImmediate(currentGrid);
+
+            CreateToGrid(gridData);
         }
 
         public void CreateToGrid(IGridData gridData)
