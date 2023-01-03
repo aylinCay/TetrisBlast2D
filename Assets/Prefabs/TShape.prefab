@@ -56,6 +56,8 @@ MonoBehaviour:
   mainGrid: {fileID: 0}
   isLocated: 0
   isSettleDown: 0
+  shapeColor: {r: 0.3529412, g: 0.55480736, b: 0.6886792, a: 1}
+  linear: {r: 0.9764706, g: 0.25490198, b: 0.26666668, a: 0}
 --- !u!1 &6294759739404519604
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,6 +184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPivotCore: 1
   parent: {fileID: 6294759738892778417}
+  coreRenderer: {fileID: 0}
   currentGridCore: {fileID: 0}
 --- !u!1 &6294759739545932196
 GameObject:
@@ -309,6 +312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPivotCore: 0
   parent: {fileID: 6294759738892778417}
+  coreRenderer: {fileID: 0}
   currentGridCore: {fileID: 0}
 --- !u!1 &6294759739944046227
 GameObject:
@@ -436,6 +440,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPivotCore: 0
   parent: {fileID: 6294759738892778417}
+  coreRenderer: {fileID: 0}
   currentGridCore: {fileID: 0}
 --- !u!1 &6294759740016271879
 GameObject:
@@ -563,4 +568,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPivotCore: 0
   parent: {fileID: 6294759738892778417}
+  coreRenderer: {fileID: 0}
   currentGridCore: {fileID: 0}

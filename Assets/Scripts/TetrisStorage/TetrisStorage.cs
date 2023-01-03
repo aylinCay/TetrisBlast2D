@@ -28,7 +28,7 @@ public class TetrisStorage : MonoBehaviour
    {
        var randIndex = Random.Range(0, tetrisPrefabs.Count);
        shape = tetrisPrefabs[randIndex];
-        shapeStroge.Add(Instantiate(shape,shape.transform.position,Quaternion.identity));
+        shapeStroge.Add(Instantiate(shape,shape.transform.position,shape.transform.rotation));
    }
     
 }

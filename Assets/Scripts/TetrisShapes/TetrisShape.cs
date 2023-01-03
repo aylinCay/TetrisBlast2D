@@ -20,12 +20,14 @@ namespace TetrisBlast.TetrisShapes
         public GridCore mainGrid = null;
         public bool isLocated;
         public bool isSettleDown = false;
-        
+        public Color shapeColor;
+        public Color linear;
         private Vector3 selectedPosition;
 
         public void Awake()
         {
             GloballAccess = this;
+            linear = shapeColor.linear;
         }
 
         public void NotifyCore(TetrisCore core, bool isSuccess = false)
@@ -99,10 +101,9 @@ namespace TetrisBlast.TetrisShapes
             isSelected = isSelect;
             selectedPosition = transform.position;
             moveOffset = (selectedPosition - core.transform.position);
-
-            moveOffset.x = 0;
-
+            moveOffset.x = 0f;
             moveOffset.y = moveOffset.y == 0 ? 1f : Mathf.Abs(moveOffset.y);
+            Debug.Log(" selected "+selectedPosition.x + " " + "Core " + core.transform.position.x + " " + moveOffset.x);
            
         }
 

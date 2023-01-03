@@ -126,6 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPivotCore: 0
   parent: {fileID: 6052588597208375271}
+  coreRenderer: {fileID: 0}
   currentGridCore: {fileID: 0}
 --- !u!1 &6052588596178102981
 GameObject:
@@ -253,6 +254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPivotCore: 0
   parent: {fileID: 6052588597208375271}
+  coreRenderer: {fileID: 0}
   currentGridCore: {fileID: 0}
 --- !u!1 &6052588596552922610
 GameObject:
@@ -380,6 +382,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPivotCore: 0
   parent: {fileID: 6052588597208375271}
+  coreRenderer: {fileID: 0}
   currentGridCore: {fileID: 0}
 --- !u!1 &6052588596713368802
 GameObject:
@@ -507,6 +510,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPivotCore: 1
   parent: {fileID: 6052588597208375271}
+  coreRenderer: {fileID: 0}
   currentGridCore: {fileID: 0}
 --- !u!1 &6052588597208375273
 GameObject:
@@ -533,7 +537,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6052588597208375273}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.87, y: -5.29, z: 0}
+  m_LocalPosition: {x: 3.87, y: -6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -564,3 +568,5 @@ MonoBehaviour:
   mainGrid: {fileID: 0}
   isLocated: 0
   isSettleDown: 0
+  shapeColor: {r: 0.99215686, g: 1, b: 0.7137255, a: 1}
+  linear: {r: 0, g: 0, b: 0, a: 0}

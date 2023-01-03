@@ -1,6 +1,7 @@
 
 
 using TetrisBlast.Grid;
+using Unity.VisualScripting;
 
 namespace TetrisBlast.TetrisShapes
 {
@@ -14,6 +15,7 @@ namespace TetrisBlast.TetrisShapes
 
         public bool isPivotCore;
         public TetrisShape parent;
+        public SpriteRenderer coreRenderer;
 
         public GridCore currentGridCore;
         RaycastHit2D hit;
@@ -21,6 +23,8 @@ namespace TetrisBlast.TetrisShapes
 
         private void Start()
         {
+            coreRenderer = GetComponent<SpriteRenderer>();
+            coreRenderer.color = parent.linear;
             if (parent != null)
             {
                 if (!parent.cores.Contains(this))
