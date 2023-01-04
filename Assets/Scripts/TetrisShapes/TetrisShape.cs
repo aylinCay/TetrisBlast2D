@@ -14,6 +14,7 @@ namespace TetrisBlast.TetrisShapes
         public List<TetrisCore> cores = new List<TetrisCore>();
         public List<TetrisCore> successCore = new List<TetrisCore>();
         public List<TetrisCore> failCore = new List<TetrisCore>();
+        public List<float> corePosition = new List<float>();
 
         public bool isSelected;
         public Vector3 moveOffset;
@@ -28,6 +29,15 @@ namespace TetrisBlast.TetrisShapes
         {
             GloballAccess = this;
             linear = shapeColor.linear;
+        }
+
+        public void Start()
+        {
+            if (mainGrid != null && failCore.Count == 0)
+            {
+                transform.position = mainGrid.transform.position;
+                Complete();
+            }
         }
 
         public void NotifyCore(TetrisCore core, bool isSuccess = false)

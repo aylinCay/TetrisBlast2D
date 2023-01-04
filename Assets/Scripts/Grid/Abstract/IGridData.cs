@@ -11,6 +11,8 @@ namespace TetrisBlast.Grid
         public Vector2 GetGridSize();
 
         public IGridCoreData GetCoreData();
+        
+        public Dictionary<int, List<GridCore>> storage { get; set; }
 
     }
 }

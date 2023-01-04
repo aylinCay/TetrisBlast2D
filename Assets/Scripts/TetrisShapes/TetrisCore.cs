@@ -9,13 +9,14 @@ namespace TetrisBlast.TetrisShapes
     using System.Collections;
     using System.Collections.Generic;
     using UnityEngine;
-
     public class TetrisCore : MonoBehaviour
     {
 
         public bool isPivotCore;
         public TetrisShape parent;
         public SpriteRenderer coreRenderer;
+
+        public Vector2 position;
 
         public GridCore currentGridCore;
         RaycastHit2D hit;
@@ -29,6 +30,11 @@ namespace TetrisBlast.TetrisShapes
             {
                 if (!parent.cores.Contains(this))
                     parent.cores.Add(this);
+                
+                if (!parent.isSelected && parent.isLocated)
+                {
+                    GridCheck();
+                }
             }
         }
 
@@ -93,8 +99,10 @@ namespace TetrisBlast.TetrisShapes
                 if (!currentGridCore.isFull)
                 {
                     currentGridCore.AddCore(this);
+                   
                 }
             }
+            parent.corePosition.Add(position.y);
         }
 
         public void Reset()

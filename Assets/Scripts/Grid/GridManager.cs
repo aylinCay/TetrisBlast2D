@@ -1,6 +1,8 @@
 
 using System;
 using JetBrains.Annotations;
+using TetrisBlast.TetrisShapes;
+using UnityEngine.Analytics;
 
 
 namespace TetrisBlast.Grid
@@ -8,18 +10,29 @@ namespace TetrisBlast.Grid
     using System.Collections;
     using System.Collections.Generic;
     using UnityEngine;
-
-    [ExecuteInEditMode]
+    
     public class GridManager : MonoBehaviour
     {
         public static GridManager GlobalAccess { get; private set; } = null;
         [field: SerializeField] public GridData gridData { get; private set; } = new GridData();
+         public GameObject grid;
+       
         
         private GameObject currentGrid;
 
         public void Awake()
         {
             GlobalAccess = this;
+            CreateToGrid(gridData);
+        }
+
+        public void Start()
+        {
+        }
+
+        public void Update()
+        {
+           FineToCompletedLine(gridData);
         }
 
         public void ReBuild()
@@ -42,23 +55,49 @@ namespace TetrisBlast.Grid
 
             for (int y = 0; y < size.y; y++)
             {
+                var currentCoreList = new List<GridCore>();
+                
                 for (int x = 0; x < size.x; x++)
                 {
                     var pos = offset + new Vector2(coreSize.x * x, coreSize.y * y);
                     var inst = Instantiate(coreData.getGridCorePrefab, pos, Quaternion.identity);
                     inst.transform.SetParent(grid.transform);
                     inst.name = $"Grid {y} {x}";
+                    var core = inst.GetComponent<GridCore>();
+                    currentCoreList.Add(core);
                 }
+                gridData.storage.Add(y,currentCoreList);
             }
         }
+
+         public void FineToCompletedLine(GridData data)
+        {
+            
+            for (int key = 0; key < gridData.storage.Count; key++)
+            {
+                var completedLine = gridData.storage[key];
+                
+                for (int x = 0; x < completedLine.Count; x++)
+                {
+                    if(completedLine[x].isFull)
+                   {
+                       Debug.Log(completedLine[x].isFull);
+                   }
+                    
+                }
+                continue;
+            }
+        }
+        
+        
+    }
 
         [Serializable]
         public class GridData: IGridData
         {
             [field: SerializeField] public Vector2 gridSize { get; private set; } = new Vector2( 9f,9f);
             [field: SerializeField] public Vector2 gridOffset { get; } = new Vector2();
-            [field: SerializeField]
-            public Dictionary<int, List<GridCore>> storage { get; private set; } =
+            [field: SerializeField] public Dictionary<int, List<GridCore>> storage { get; set; } =
                 new Dictionary<int, List<GridCore>>();
 
 
@@ -76,8 +115,8 @@ namespace TetrisBlast.Grid
                 public GameObject getGridCorePrefab => _grid_core;
             }
         }
-
+        
+        
     }
     
 
-}
