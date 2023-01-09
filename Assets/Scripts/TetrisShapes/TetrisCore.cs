@@ -99,10 +99,10 @@ namespace TetrisBlast.TetrisShapes
                 if (!currentGridCore.isFull)
                 {
                     currentGridCore.AddCore(this);
-                   
+                  
                 }
             }
-            parent.corePosition.Add(position.y);
+           
         }
 
         public void Reset()

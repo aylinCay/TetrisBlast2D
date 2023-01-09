@@ -1,5 +1,6 @@
 
 using System;
+using System.Drawing;
 using JetBrains.Annotations;
 using TetrisBlast.TetrisShapes;
 using UnityEngine.Analytics;
@@ -10,20 +11,22 @@ namespace TetrisBlast.Grid
     using System.Collections;
     using System.Collections.Generic;
     using UnityEngine;
-    
+
     public class GridManager : MonoBehaviour
     {
         public static GridManager GlobalAccess { get; private set; } = null;
         [field: SerializeField] public GridData gridData { get; private set; } = new GridData();
-         public GameObject grid;
-       
-        
+        [field: SerializeField] public GridCore gridcore { get; private set; } = new GridCore();
+        public GameObject grid;
+
+        List<GridCore> currentCoreList = new List<GridCore>();
+
         private GameObject currentGrid;
 
         public void Awake()
         {
             GlobalAccess = this;
-            CreateToGrid(gridData);
+
         }
 
         public void Start()
@@ -32,7 +35,7 @@ namespace TetrisBlast.Grid
 
         public void Update()
         {
-           FineToCompletedLine(gridData);
+            FindToCompletedLine(gridcore);
         }
 
         public void ReBuild()
@@ -53,10 +56,9 @@ namespace TetrisBlast.Grid
             grid.name = "Grid";
             grid.transform.position = Vector2.zero;
 
+
             for (int y = 0; y < size.y; y++)
             {
-                var currentCoreList = new List<GridCore>();
-                
                 for (int x = 0; x < size.x; x++)
                 {
                     var pos = offset + new Vector2(coreSize.x * x, coreSize.y * y);
@@ -66,47 +68,46 @@ namespace TetrisBlast.Grid
                     var core = inst.GetComponent<GridCore>();
                     currentCoreList.Add(core);
                 }
-                gridData.storage.Add(y,currentCoreList);
+
+                gridData.Ystorage.Add(y, currentCoreList);
             }
         }
 
-         public void FineToCompletedLine(GridData data)
+        public void FindToCompletedLine(GridCore core)
         {
-            
-            for (int key = 0; key < gridData.storage.Count; key++)
+            if (core.coordinates.Xcordinates.Contains(0))
             {
-                var completedLine = gridData.storage[key];
-                
-                for (int x = 0; x < completedLine.Count; x++)
+                if (core.coordinates.Xcordinates.Count == 8)
                 {
-                    if(completedLine[x].isFull)
-                   {
-                       Debug.Log(completedLine[x].isFull);
-                   }
-                    
+                    core.gameObject.SetActive(false);
                 }
-                continue;
             }
+
+
+
         }
-        
-        
     }
 
-        [Serializable]
+
+
+
+    [Serializable]
         public class GridData: IGridData
         {
             [field: SerializeField] public Vector2 gridSize { get; private set; } = new Vector2( 9f,9f);
             [field: SerializeField] public Vector2 gridOffset { get; } = new Vector2();
-            [field: SerializeField] public Dictionary<int, List<GridCore>> storage { get; set; } =
-                new Dictionary<int, List<GridCore>>();
+           
 
+            [field: SerializeField] public Dictionary<int, List<GridCore>> Ystorage { get; set; } =
+                new Dictionary<int, List<GridCore>>();
 
             [field: SerializeField] private GridCoreData _core_data = new GridCoreData();
             
             public Vector2 GetGridSize() => gridSize;
             public IGridCoreData GetCoreData() => _core_data;
             
-            
+
+
             [Serializable]
             public class GridCoreData : IGridCoreData
             {

@@ -57,6 +57,7 @@ namespace TetrisBlast.TetrisShapes
             if (isExitsSuccess) successCore.Remove(core);
             if (!isExitsFail) failCore.Add(core);
         }
+        
         private void Update()
         {
             if (isSelected)
