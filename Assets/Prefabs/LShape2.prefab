@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9221023920266456861}
   m_Layer: 3
   m_Name: Square (3)
-  m_TagString: Untagged
+  m_TagString: Core
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9221023920266456833}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -127,7 +127,11 @@ MonoBehaviour:
   isPivotCore: 0
   parent: {fileID: 9221023922029200660}
   coreRenderer: {fileID: 0}
+  position: {x: 0, y: 0}
   currentGridCore: {fileID: 0}
+  gridInfo:
+    key: 0
+    orderX: 0
 --- !u!1 &9221023920443848209
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,7 +146,7 @@ GameObject:
   - component: {fileID: 9221023920443848237}
   m_Layer: 3
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Core
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -155,7 +159,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9221023920443848209}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -252,10 +256,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 578397ab2749b8545b8de8dc1d4eab6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPivotCore: 1
+  isPivotCore: 0
   parent: {fileID: 9221023922029200660}
   coreRenderer: {fileID: 0}
+  position: {x: 0, y: 0}
   currentGridCore: {fileID: 0}
+  gridInfo:
+    key: 0
+    orderX: 0
 --- !u!1 &9221023920869989538
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,7 +278,7 @@ GameObject:
   - component: {fileID: 9221023920869989566}
   m_Layer: 3
   m_Name: Square (1)
-  m_TagString: Untagged
+  m_TagString: Core
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -283,7 +291,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9221023920869989538}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: -2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -380,10 +388,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 578397ab2749b8545b8de8dc1d4eab6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPivotCore: 0
+  isPivotCore: 1
   parent: {fileID: 9221023922029200660}
   coreRenderer: {fileID: 0}
+  position: {x: 0, y: 0}
   currentGridCore: {fileID: 0}
+  gridInfo:
+    key: 0
+    orderX: 0
 --- !u!1 &9221023920973934646
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,7 +410,7 @@ GameObject:
   - component: {fileID: 9221023920973934642}
   m_Layer: 3
   m_Name: Square (2)
-  m_TagString: Untagged
+  m_TagString: Core
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -411,7 +423,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9221023920973934646}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 944}
+  m_LocalPosition: {x: 0, y: 0, z: 944}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -508,10 +520,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 578397ab2749b8545b8de8dc1d4eab6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPivotCore: 0
+  isPivotCore: 1
   parent: {fileID: 9221023922029200660}
   coreRenderer: {fileID: 0}
+  position: {x: 0, y: 0}
   currentGridCore: {fileID: 0}
+  gridInfo:
+    key: 0
+    orderX: 0
 --- !u!1 &9221023922029200666
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,8 +552,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9221023922029200666}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 5, y: -5.29, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -547,7 +563,7 @@ Transform:
   - {fileID: 9221023920266456834}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9221023922029200660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -563,6 +579,7 @@ MonoBehaviour:
   cores: []
   successCore: []
   failCore: []
+  cordinatesInfo: []
   isSelected: 0
   moveOffset: {x: 0, y: 0, z: 0}
   mainGrid: {fileID: 0}
@@ -570,3 +587,4 @@ MonoBehaviour:
   isSettleDown: 0
   shapeColor: {r: 0.7921569, g: 1, b: 0.7490196, a: 1}
   linear: {r: 0, g: 0, b: 0, a: 0}
+  pos: {x: 0, y: 0, z: 0}

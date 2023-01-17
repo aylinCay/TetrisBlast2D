@@ -51,6 +51,7 @@ MonoBehaviour:
   cores: []
   successCore: []
   failCore: []
+  cordinatesInfo: []
   isSelected: 0
   moveOffset: {x: 0, y: 0, z: 0}
   mainGrid: {fileID: 0}
@@ -58,6 +59,7 @@ MonoBehaviour:
   isSettleDown: 0
   shapeColor: {r: 1, g: 0.7764706, b: 1, a: 1}
   linear: {r: 0, g: 0, b: 0, a: 0}
+  pos: {x: 0, y: 0, z: 0}
 --- !u!1 &244596700672783248
 GameObject:
   m_ObjectHideFlags: 0
@@ -72,7 +74,7 @@ GameObject:
   - component: {fileID: 244596700672783244}
   m_Layer: 3
   m_Name: Square (1)
-  m_TagString: Untagged
+  m_TagString: Core
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -185,7 +187,11 @@ MonoBehaviour:
   isPivotCore: 0
   parent: {fileID: 244596699818797606}
   coreRenderer: {fileID: 0}
+  position: {x: 0, y: 0}
   currentGridCore: {fileID: 0}
+  gridInfo:
+    key: 0
+    orderX: 0
 --- !u!1 &244596700910935812
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,7 +206,7 @@ GameObject:
   - component: {fileID: 244596700910935808}
   m_Layer: 3
   m_Name: Square (2)
-  m_TagString: Untagged
+  m_TagString: Core
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -313,7 +319,11 @@ MonoBehaviour:
   isPivotCore: 0
   parent: {fileID: 244596699818797606}
   coreRenderer: {fileID: 0}
+  position: {x: 0, y: 0}
   currentGridCore: {fileID: 0}
+  gridInfo:
+    key: 0
+    orderX: 0
 --- !u!1 &244596701277192243
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,7 +338,7 @@ GameObject:
   - component: {fileID: 244596701277192239}
   m_Layer: 3
   m_Name: Square (3)
-  m_TagString: Untagged
+  m_TagString: Core
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -441,7 +451,11 @@ MonoBehaviour:
   isPivotCore: 0
   parent: {fileID: 244596699818797606}
   coreRenderer: {fileID: 0}
+  position: {x: 0, y: 0}
   currentGridCore: {fileID: 0}
+  gridInfo:
+    key: 0
+    orderX: 0
 --- !u!1 &244596701454653731
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,7 +470,7 @@ GameObject:
   - component: {fileID: 244596701454653727}
   m_Layer: 3
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Core
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -569,4 +583,8 @@ MonoBehaviour:
   isPivotCore: 1
   parent: {fileID: 244596699818797606}
   coreRenderer: {fileID: 0}
+  position: {x: 0, y: 0}
   currentGridCore: {fileID: 0}
+  gridInfo:
+    key: 0
+    orderX: 0

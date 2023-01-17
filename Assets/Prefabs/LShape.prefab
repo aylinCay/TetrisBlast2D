@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6052588595948324429}
   m_Layer: 3
   m_Name: Square (1)
-  m_TagString: Untagged
+  m_TagString: Core
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,7 +127,11 @@ MonoBehaviour:
   isPivotCore: 0
   parent: {fileID: 6052588597208375271}
   coreRenderer: {fileID: 0}
+  position: {x: 0, y: 0}
   currentGridCore: {fileID: 0}
+  gridInfo:
+    key: 0
+    orderX: 0
 --- !u!1 &6052588596178102981
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,7 +146,7 @@ GameObject:
   - component: {fileID: 6052588596178102977}
   m_Layer: 3
   m_Name: Square (2)
-  m_TagString: Untagged
+  m_TagString: Core
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -255,7 +259,11 @@ MonoBehaviour:
   isPivotCore: 0
   parent: {fileID: 6052588597208375271}
   coreRenderer: {fileID: 0}
+  position: {x: 0, y: 0}
   currentGridCore: {fileID: 0}
+  gridInfo:
+    key: 0
+    orderX: 0
 --- !u!1 &6052588596552922610
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,7 +278,7 @@ GameObject:
   - component: {fileID: 6052588596552922606}
   m_Layer: 3
   m_Name: Square (3)
-  m_TagString: Untagged
+  m_TagString: Core
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -383,7 +391,11 @@ MonoBehaviour:
   isPivotCore: 0
   parent: {fileID: 6052588597208375271}
   coreRenderer: {fileID: 0}
+  position: {x: 0, y: 0}
   currentGridCore: {fileID: 0}
+  gridInfo:
+    key: 0
+    orderX: 0
 --- !u!1 &6052588596713368802
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,7 +410,7 @@ GameObject:
   - component: {fileID: 6052588596713368798}
   m_Layer: 3
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Core
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -511,7 +523,11 @@ MonoBehaviour:
   isPivotCore: 1
   parent: {fileID: 6052588597208375271}
   coreRenderer: {fileID: 0}
+  position: {x: 0, y: 0}
   currentGridCore: {fileID: 0}
+  gridInfo:
+    key: 0
+    orderX: 0
 --- !u!1 &6052588597208375273
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,7 +553,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6052588597208375273}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.87, y: -6, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -563,6 +579,7 @@ MonoBehaviour:
   cores: []
   successCore: []
   failCore: []
+  cordinatesInfo: []
   isSelected: 0
   moveOffset: {x: 0, y: 0, z: 0}
   mainGrid: {fileID: 0}
@@ -570,3 +587,4 @@ MonoBehaviour:
   isSettleDown: 0
   shapeColor: {r: 0.99215686, g: 1, b: 0.7137255, a: 1}
   linear: {r: 0, g: 0, b: 0, a: 0}
+  pos: {x: 0, y: 0, z: 0}

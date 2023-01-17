@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1104177899317209333}
   m_Layer: 3
   m_Name: Square (1)
-  m_TagString: Untagged
+  m_TagString: Core
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,7 +127,11 @@ MonoBehaviour:
   isPivotCore: 0
   parent: {fileID: 1104177900574765407}
   coreRenderer: {fileID: 0}
+  position: {x: 0, y: 0}
   currentGridCore: {fileID: 0}
+  gridInfo:
+    key: 0
+    orderX: 0
 --- !u!1 &1104177899532027005
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,7 +146,7 @@ GameObject:
   - component: {fileID: 1104177899532027001}
   m_Layer: 3
   m_Name: Square (2)
-  m_TagString: Untagged
+  m_TagString: Core
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -255,7 +259,11 @@ MonoBehaviour:
   isPivotCore: 0
   parent: {fileID: 1104177900574765407}
   coreRenderer: {fileID: 0}
+  position: {x: 0, y: 0}
   currentGridCore: {fileID: 0}
+  gridInfo:
+    key: 0
+    orderX: 0
 --- !u!1 &1104177899921660746
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,7 +278,7 @@ GameObject:
   - component: {fileID: 1104177899921660758}
   m_Layer: 3
   m_Name: Square (3)
-  m_TagString: Untagged
+  m_TagString: Core
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -383,7 +391,11 @@ MonoBehaviour:
   isPivotCore: 0
   parent: {fileID: 1104177900574765407}
   coreRenderer: {fileID: 0}
+  position: {x: 0, y: 0}
   currentGridCore: {fileID: 0}
+  gridInfo:
+    key: 0
+    orderX: 0
 --- !u!1 &1104177900063097434
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,7 +410,7 @@ GameObject:
   - component: {fileID: 1104177900063097446}
   m_Layer: 3
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Core
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -511,7 +523,11 @@ MonoBehaviour:
   isPivotCore: 1
   parent: {fileID: 1104177900574765407}
   coreRenderer: {fileID: 0}
+  position: {x: 0, y: 0}
   currentGridCore: {fileID: 0}
+  gridInfo:
+    key: 0
+    orderX: 0
 --- !u!1 &1104177900574765393
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,6 +579,7 @@ MonoBehaviour:
   cores: []
   successCore: []
   failCore: []
+  cordinatesInfo: []
   isSelected: 0
   moveOffset: {x: 0, y: 0, z: 0}
   mainGrid: {fileID: 0}
@@ -570,3 +587,4 @@ MonoBehaviour:
   isSettleDown: 0
   shapeColor: {r: 0.627451, g: 0.76862746, b: 1, a: 1}
   linear: {r: 0, g: 0, b: 0, a: 0}
+  pos: {x: 0, y: 0, z: 0}

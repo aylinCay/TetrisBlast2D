@@ -1,3 +1,4 @@
+using System;
 using TetrisBlast.Grid;
 
 namespace TetrisBlast
@@ -6,10 +7,16 @@ namespace TetrisBlast
     using System.Collections.Generic;
     using UnityEngine;
 
+    [Serializable]
     public class Coordinates
     {
-        public List<float> Xcordinates { get; }
+        public int key;
+        public int orderX;
 
-        public List<float> Ycordinates { get; }
+        public Coordinates(int key, int x)
+        {
+            this.key = key;
+            orderX = x;
+        }
     }
 }

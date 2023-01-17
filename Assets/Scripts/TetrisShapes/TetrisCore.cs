@@ -19,7 +19,11 @@ namespace TetrisBlast.TetrisShapes
         public Vector2 position;
 
         public GridCore currentGridCore;
+
+        public Coordinates gridInfo;
+            
         RaycastHit2D hit;
+        
         private LayerMask mask => ShapeManager.GloballAccess.coreLayerMask;
 
         private void Start()
@@ -70,11 +74,7 @@ namespace TetrisBlast.TetrisShapes
 
             if (hit.transform.TryGetComponent<GridCore>(out nCore) && !nCore.isFull)
             {
-                if (currentGridCore != null)
-                {
-                    currentGridCore.Reset();
-                }
-
+                
                 currentGridCore = nCore;
                 return true;
             }
@@ -99,7 +99,7 @@ namespace TetrisBlast.TetrisShapes
                 if (!currentGridCore.isFull)
                 {
                     currentGridCore.AddCore(this);
-                  
+                    parent.cordinatesInfo.Add(gridInfo);
                 }
             }
            
@@ -112,6 +112,7 @@ namespace TetrisBlast.TetrisShapes
                 if (currentGridCore.shapeCore == this)
                 {
                     currentGridCore.AddCore(null);
+                    parent.cordinatesInfo.Remove(gridInfo);
                 }
             }
         }

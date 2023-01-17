@@ -13,26 +13,16 @@ namespace TetrisBlast.Grid
     {
         [field: SerializeField] public bool isFull { get; set; } = false;
         [field: SerializeField] [CanBeNull] public TetrisCore shapeCore { get; set; } = null;
-        public Coordinates coordinates;
-
-        public void Start()
-        {
-           
-          
-        }
-
+        public Coordinates info;
+        
         public void AddCore([CanBeNull] TetrisCore core)
         {
             var p = core != null;
             isFull = p;
             shapeCore = core;
-            
-        }
+            core.gridInfo = info;
 
-        public void Reset()
-        {
-            isFull = false;
-            shapeCore = null;
         }
+        
     }
 }

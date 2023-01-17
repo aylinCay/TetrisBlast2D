@@ -14,7 +14,7 @@ namespace TetrisBlast.TetrisShapes
         public List<TetrisCore> cores = new List<TetrisCore>();
         public List<TetrisCore> successCore = new List<TetrisCore>();
         public List<TetrisCore> failCore = new List<TetrisCore>();
-        public List<float> corePosition = new List<float>();
+        public List<Coordinates> cordinatesInfo = new List<Coordinates>();
 
         public bool isSelected;
         public Vector3 moveOffset;
@@ -24,6 +24,7 @@ namespace TetrisBlast.TetrisShapes
         public Color shapeColor;
         public Color linear;
         private Vector3 selectedPosition;
+        public Vector3 pos;
 
         public void Awake()
         {
@@ -64,7 +65,7 @@ namespace TetrisBlast.TetrisShapes
             {
                 var inputPosition = Input.mousePosition;
                 inputPosition.z = Camera.main.farClipPlane;
-                var pos = Camera.main.ScreenToWorldPoint(inputPosition);
+                 pos = Camera.main.ScreenToWorldPoint(inputPosition);
                 pos.z = 0f;
 
                 transform.position = Vector3.Lerp(transform.position, pos + moveOffset, .1f);
@@ -78,6 +79,7 @@ namespace TetrisBlast.TetrisShapes
                         isLocated = true;
                         isSettleDown = true;
                         Complete();
+                        GridManager.GlobalAccess.FindsCompleteGridCore(cordinatesInfo.ToArray());
                         return;
                     }
                     
@@ -111,10 +113,12 @@ namespace TetrisBlast.TetrisShapes
             
             isSelected = isSelect;
             selectedPosition = transform.position;
-            moveOffset = (selectedPosition - core.transform.position);
-            moveOffset.x = 0f;
-            moveOffset.y = moveOffset.y == 0 ? 1f : Mathf.Abs(moveOffset.y);
-            Debug.Log(" selected "+selectedPosition.x + " " + "Core " + core.transform.position.x + " " + moveOffset.x);
+            //moveOffset = (selectedPosition - pos);
+            //moveOffset.x = 0f;
+            //moveOffset.y = moveOffset.y == 0 ? 1f : Mathf.Abs(moveOffset.y);
+            moveOffset.y = 1f;
+            moveOffset.x = 0;
+            Debug.Log("selected" + selectedPosition.y + "core" + core.transform.position.y + "move" + moveOffset.y);
            
         }
 

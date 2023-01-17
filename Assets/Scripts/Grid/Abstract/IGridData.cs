@@ -12,6 +12,6 @@ namespace TetrisBlast.Grid
 
         public IGridCoreData GetCoreData();
       
-        public Dictionary<int, List<GridCore>> Ystorage { get; set; }
+        public Dictionary<int, List<GridCore>> storage { get; set; }
     }
 }
