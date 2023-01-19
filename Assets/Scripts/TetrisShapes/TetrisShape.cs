@@ -25,18 +25,19 @@ namespace TetrisBlast.TetrisShapes
         public Color linear;
         private Vector3 selectedPosition;
         public Vector3 pos;
+        public Color allShapeColor;
 
         public void Awake()
         {
             GloballAccess = this;
             linear = shapeColor.linear;
+            
         }
 
         public void Start()
         {
             if (mainGrid != null && failCore.Count == 0)
             {
-                transform.position = mainGrid.transform.position;
                 Complete();
             }
         }
@@ -79,6 +80,7 @@ namespace TetrisBlast.TetrisShapes
                         isLocated = true;
                         isSettleDown = true;
                         Complete();
+                        allShapeColor = this.shapeColor.linear;
                         GridManager.GlobalAccess.FindsCompleteGridCore(cordinatesInfo.ToArray());
                         return;
                     }

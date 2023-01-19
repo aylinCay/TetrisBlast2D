@@ -159,7 +159,8 @@ namespace TetrisBlast.Grid
             var selected = gridData.storage[key];
             foreach (var VARIABLE in selected)
             {
-                Destroy(VARIABLE.shapeCore.gameObject);
+                VARIABLE.shapeCore.coreRenderer.color = TetrisShape.GloballAccess.allShapeColor;
+                Destroy(VARIABLE.shapeCore.gameObject , .5f);
                 VARIABLE.isFull = false;
             }
         }
@@ -172,7 +173,8 @@ namespace TetrisBlast.Grid
                 {
                     foreach (var grid in VARIABLE.Value)
                     {
-                        Destroy(grid.shapeCore.gameObject);
+                        grid.shapeCore.coreRenderer.color = TetrisShape.GloballAccess.allShapeColor;
+                        Destroy(grid.shapeCore.gameObject , .5f);
                         grid.isFull = false;
                     }
                 }
