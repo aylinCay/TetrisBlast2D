@@ -6,6 +6,7 @@ using System.Xml.XPath;
 using JetBrains.Annotations;
 using TetrisBlast.TetrisShapes;
 using UnityEngine.Analytics;
+using UnityEngine.Rendering;
 
 
 namespace TetrisBlast.Grid
@@ -16,8 +17,11 @@ namespace TetrisBlast.Grid
 
     public class GridManager : MonoBehaviour
     {
+       
         public static GridManager GlobalAccess { get; private set; } = null;
         [field: SerializeField] public GridData gridData { get; private set; } = new GridData();
+        public GameObject effect;
+        
         
         private GameObject currentGrid;
        
@@ -27,7 +31,14 @@ namespace TetrisBlast.Grid
             CreateToGrid(gridData);
 
         }
-        
+
+        public void Start()
+        {
+
+            
+
+        }
+
         public void ReBuild()
         {
             if (currentGrid != null)
@@ -106,6 +117,7 @@ namespace TetrisBlast.Grid
                     {
                         LineExplosion(key);
                     }
+                    
                 }
                 
               
@@ -159,7 +171,7 @@ namespace TetrisBlast.Grid
             var selected = gridData.storage[key];
             foreach (var VARIABLE in selected)
             {
-                VARIABLE.shapeCore.coreRenderer.color = TetrisShape.GloballAccess.allShapeColor;
+                VARIABLE.shapeCore.coreRenderer.sprite = TetrisShape.GloballAccess.allShapeColor;
                 Destroy(VARIABLE.shapeCore.gameObject , .5f);
                 VARIABLE.isFull = false;
             }
@@ -173,8 +185,8 @@ namespace TetrisBlast.Grid
                 {
                     foreach (var grid in VARIABLE.Value)
                     {
-                        grid.shapeCore.coreRenderer.color = TetrisShape.GloballAccess.allShapeColor;
-                        Destroy(grid.shapeCore.gameObject , .5f);
+                        grid.shapeCore.coreRenderer.sprite = TetrisShape.GloballAccess.allShapeColor;
+                        Destroy(grid.shapeCore.gameObject , 1f);
                         grid.isFull = false;
                     }
                 }

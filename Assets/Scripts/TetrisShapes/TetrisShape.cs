@@ -21,17 +21,17 @@ namespace TetrisBlast.TetrisShapes
         public GridCore mainGrid = null;
         public bool isLocated;
         public bool isSettleDown = false;
-        public Color shapeColor;
-        public Color linear;
+        public Sprite sprite;
+        
+        
         private Vector3 selectedPosition;
         public Vector3 pos;
-        public Color allShapeColor;
+        public Sprite allShapeColor;
 
         public void Awake()
         {
             GloballAccess = this;
-            linear = shapeColor.linear;
-            
+            sprite = this.sprite;
         }
 
         public void Start()
@@ -80,7 +80,7 @@ namespace TetrisBlast.TetrisShapes
                         isLocated = true;
                         isSettleDown = true;
                         Complete();
-                        allShapeColor = this.shapeColor.linear;
+                        allShapeColor = this.sprite;
                         GridManager.GlobalAccess.FindsCompleteGridCore(cordinatesInfo.ToArray());
                         return;
                     }

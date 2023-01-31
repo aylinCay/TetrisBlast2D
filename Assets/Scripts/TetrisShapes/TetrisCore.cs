@@ -29,7 +29,7 @@ namespace TetrisBlast.TetrisShapes
         private void Start()
         {
             coreRenderer = GetComponent<SpriteRenderer>();
-            coreRenderer.color = parent.linear;
+            coreRenderer.sprite = parent.sprite;
             if (parent != null)
             {
                 if (!parent.cores.Contains(this))
