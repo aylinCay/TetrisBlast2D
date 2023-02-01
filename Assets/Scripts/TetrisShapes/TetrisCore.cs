@@ -46,7 +46,9 @@ namespace TetrisBlast.TetrisShapes
         {
             if (parent.isSelected && !parent.isLocated)
             {
+                coreRenderer.sortingOrder = 2;
                 GridCheck();
+
             }
         }
 
@@ -84,6 +86,7 @@ namespace TetrisBlast.TetrisShapes
 
         public void Success()
         {
+            coreRenderer.sortingOrder = 1;
             parent.NotifyCore(this, true);
         }
 

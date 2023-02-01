@@ -1,3 +1,5 @@
+using System;
+
 namespace TetrisBlast.TetrisShapes
 {
     using System.Collections;
@@ -10,13 +12,19 @@ namespace TetrisBlast.TetrisShapes
         public static ShapeManager GloballAccess { get; private set; } = null;
         public LayerMask coreLayerMask;
         public LayerMask mask;
+       
 
 
         private void Awake()
         {
             GloballAccess = this;
         }
-        
+
+        public void Start()
+        {
+          
+        }
+
         public void Update()
         {
             if (Input.GetButtonDown("Fire1"))
@@ -32,6 +40,7 @@ namespace TetrisBlast.TetrisShapes
                     shapeCore.Select();
                 }
             }
+
 
             if (TetrisShape.GloballAccess.isSettleDown)
             {

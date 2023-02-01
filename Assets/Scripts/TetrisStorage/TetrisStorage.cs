@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class TetrisStorage : MonoBehaviour
@@ -13,7 +14,9 @@ public class TetrisStorage : MonoBehaviour
    [field: SerializeField] public List<GameObject> shapeStroge = new List<GameObject>();
 
     [field: SerializeField] public GameObject shape;
-
+    [field: SerializeField] public GameObject createShape;
+    public int heart = 0;
+    public List<GameObject> heartImage;
     public void Awake()
     {
         GloballAccess = this;
@@ -22,13 +25,17 @@ public class TetrisStorage : MonoBehaviour
     public void Start()
     {
         CreateToShape();
+        
     }
     
     public void CreateToShape()
    {
        var randIndex = Random.Range(0, tetrisPrefabs.Count);
        shape = tetrisPrefabs[randIndex];
-        shapeStroge.Add(Instantiate(shape,transform.position,shape.transform.rotation));
+       createShape = Instantiate(shape, transform.position, shape.transform.rotation);
+       shapeStroge.Add(createShape);
    }
+
+   
     
 }

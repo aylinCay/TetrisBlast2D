@@ -186,7 +186,7 @@ namespace TetrisBlast.Grid
                     foreach (var grid in VARIABLE.Value)
                     {
                         grid.shapeCore.coreRenderer.sprite = TetrisShape.GloballAccess.allShapeColor;
-                        Destroy(grid.shapeCore.gameObject , 1f);
+                        Destroy(grid.shapeCore.gameObject , .5f);
                         grid.isFull = false;
                     }
                 }

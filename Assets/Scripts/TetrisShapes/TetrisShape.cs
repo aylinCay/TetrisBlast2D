@@ -22,7 +22,7 @@ namespace TetrisBlast.TetrisShapes
         public bool isLocated;
         public bool isSettleDown = false;
         public Sprite sprite;
-        
+       
         
         private Vector3 selectedPosition;
         public Vector3 pos;
@@ -40,6 +40,7 @@ namespace TetrisBlast.TetrisShapes
             {
                 Complete();
             }
+            
         }
 
         public void NotifyCore(TetrisCore core, bool isSuccess = false)
