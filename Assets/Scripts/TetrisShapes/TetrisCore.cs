@@ -26,6 +26,8 @@ namespace TetrisBlast.TetrisShapes
         
         private LayerMask mask => ShapeManager.GloballAccess.coreLayerMask;
 
+      
+
         private void Start()
         {
             coreRenderer = GetComponent<SpriteRenderer>();
@@ -46,9 +48,12 @@ namespace TetrisBlast.TetrisShapes
         {
             if (parent.isSelected && !parent.isLocated)
             {
-                coreRenderer.sortingOrder = 2;
                 GridCheck();
+            }
 
+            if (parent.isSelected)
+            {
+                coreRenderer.sortingOrder = 2;
             }
         }
 
@@ -103,6 +108,7 @@ namespace TetrisBlast.TetrisShapes
                 {
                     currentGridCore.AddCore(this);
                     parent.cordinatesInfo.Add(gridInfo);
+                    coreRenderer.sortingOrder = 1;
                 }
             }
            

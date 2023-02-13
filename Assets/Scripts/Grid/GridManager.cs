@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Xml.XPath;
 using JetBrains.Annotations;
+using TetrisBlast.Manager;
 using TetrisBlast.TetrisShapes;
 using UnityEngine.Analytics;
 using UnityEngine.Rendering;
@@ -20,10 +21,11 @@ namespace TetrisBlast.Grid
        
         public static GridManager GlobalAccess { get; private set; } = null;
         [field: SerializeField] public GridData gridData { get; private set; } = new GridData();
-        public GameObject effect;
-        
-        
+      
+
         private GameObject currentGrid;
+        public int score;
+        
        
         public void Awake()
         {
@@ -169,20 +171,34 @@ namespace TetrisBlast.Grid
         void LineExplosion(int key)
         {
             var selected = gridData.storage[key];
+            Vector3 pos = Vector3.zero;
+            pos.y = selected[0].transform.position.y;
+            pos.x = TetrisShape.GloballAccess.position.x;
+            VfxManager.GloballAccess.Explosion(ExplosionDirection.Horizontal,pos);
+            score += 10;
             foreach (var VARIABLE in selected)
             {
                 VARIABLE.shapeCore.coreRenderer.sprite = TetrisShape.GloballAccess.allShapeColor;
                 Destroy(VARIABLE.shapeCore.gameObject , .5f);
                 VARIABLE.isFull = false;
             }
+            
+          
         }
 
         void RowExplosion(Dictionary<int, List<GridCore>> grids)
         {
+         
+            Debug.Log("Çalıştı");
             foreach (var VARIABLE in grids)
             {
                 if (VARIABLE.Value.Count >= 9)
                 {
+                    Vector3 pos = Vector3.zero;
+                    pos.x = VARIABLE.Value[0].transform.position.x;
+                    pos.y = TetrisShape.GloballAccess.position.y;
+                    VfxManager.GloballAccess.Explosion(ExplosionDirection.Vertical,pos);
+                    score += 10;
                     foreach (var grid in VARIABLE.Value)
                     {
                         grid.shapeCore.coreRenderer.sprite = TetrisShape.GloballAccess.allShapeColor;
@@ -191,6 +207,7 @@ namespace TetrisBlast.Grid
                     }
                 }
             }
+           
         }
        
     }
@@ -223,8 +240,22 @@ namespace TetrisBlast.Grid
                 public GameObject getGridCorePrefab => _grid_core;
             }
         }
-        
-        
-    }
+
+        public enum GridColor
+        {
+            Red = 0,
+            Pink = 1,
+            Blue = 2,
+            Green = 3,
+            DarkBlue = 4,
+            Yellow = 5,
+            White = 6,
+            Gray = 7,
+            Purple = 8,
+            Orange = 9
+        };
+
+
+}
     
 

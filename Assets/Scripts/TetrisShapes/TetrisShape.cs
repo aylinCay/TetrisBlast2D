@@ -15,7 +15,8 @@ namespace TetrisBlast.TetrisShapes
         public List<TetrisCore> successCore = new List<TetrisCore>();
         public List<TetrisCore> failCore = new List<TetrisCore>();
         public List<Coordinates> cordinatesInfo = new List<Coordinates>();
-
+        public GridColor color;
+        public Vector3 position;
         public bool isSelected;
         public Vector3 moveOffset;
         public GridCore mainGrid = null;
@@ -81,7 +82,9 @@ namespace TetrisBlast.TetrisShapes
                         isLocated = true;
                         isSettleDown = true;
                         Complete();
+                        position = transform.position;
                         allShapeColor = this.sprite;
+                        VfxManager.GloballAccess.selected = color;
                         GridManager.GlobalAccess.FindsCompleteGridCore(cordinatesInfo.ToArray());
                         return;
                     }
@@ -121,8 +124,7 @@ namespace TetrisBlast.TetrisShapes
             //moveOffset.y = moveOffset.y == 0 ? 1f : Mathf.Abs(moveOffset.y);
             moveOffset.y = 1f;
             moveOffset.x = 0;
-            Debug.Log("selected" + selectedPosition.y + "core" + core.transform.position.y + "move" + moveOffset.y);
-           
+
         }
 
     }
