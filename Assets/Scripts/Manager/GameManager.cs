@@ -22,8 +22,7 @@ namespace TetrisBlast.Manager
         public TextMeshProUGUI highScoreText;
         public TextMeshProUGUI scoreTextPanel;
         public AudioSource buttonSound;
-       
-
+        
         public int Score
         {
             get => GridManager.GlobalAccess.score;
@@ -67,11 +66,17 @@ namespace TetrisBlast.Manager
             scorePanel.SetActive(true);
         }
 
-        public void RepLay()
+        public void NextButton1()
         {
             buttonSound.Play();
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
         }
+
+        public void NextButton2()
+        {
+            SceneManager.LoadScene(3);
+        }
+        
 
         public void Update()
         {

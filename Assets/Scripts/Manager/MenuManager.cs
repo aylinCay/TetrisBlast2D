@@ -56,6 +56,11 @@ namespace TetrisBlast.Manager
             }
 
         }
+
+        public void ExitButton()
+        {
+            Application.Quit();
+        }
     }
 
 }
