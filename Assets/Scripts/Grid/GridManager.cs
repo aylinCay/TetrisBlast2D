@@ -25,6 +25,7 @@ namespace TetrisBlast.Grid
 
         private GameObject currentGrid;
         public int score;
+        public AudioSource dropSound;
         
        
         public void Awake()
@@ -37,7 +38,7 @@ namespace TetrisBlast.Grid
         public void Start()
         {
 
-            
+            dropSound = GetComponent<AudioSource>();
 
         }
 
@@ -175,6 +176,7 @@ namespace TetrisBlast.Grid
             pos.y = selected[0].transform.position.y;
             pos.x = TetrisShape.GloballAccess.position.x;
             VfxManager.GloballAccess.Explosion(ExplosionDirection.Horizontal,pos);
+            VfxManager.GloballAccess.explosionSound.Play();
             score += 10;
             foreach (var VARIABLE in selected)
             {
@@ -198,6 +200,7 @@ namespace TetrisBlast.Grid
                     pos.x = VARIABLE.Value[0].transform.position.x;
                     pos.y = TetrisShape.GloballAccess.position.y;
                     VfxManager.GloballAccess.Explosion(ExplosionDirection.Vertical,pos);
+                    VfxManager.GloballAccess.explosionSound.Play();
                     score += 10;
                     foreach (var grid in VARIABLE.Value)
                     {

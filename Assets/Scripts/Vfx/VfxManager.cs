@@ -9,12 +9,18 @@ public class VfxManager : MonoBehaviour
 {
     public static VfxManager GloballAccess;
     public GridColor selected = GridColor.Red;
+    public AudioSource explosionSound;
 
     public Dictionary<GridColor, VfxExplosion> explosions = new Dictionary<GridColor, VfxExplosion>();
     public void Awake()
     {
         GloballAccess = this;
         
+    }
+
+    public void Start()
+    {
+        explosionSound = GetComponent<AudioSource>();
     }
 
     public void Explosion(ExplosionDirection dir , Vector3 pos)

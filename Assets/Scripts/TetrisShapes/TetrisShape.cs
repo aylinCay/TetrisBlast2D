@@ -1,4 +1,5 @@
 using TetrisBlast.Grid;
+using TetrisBlast.Manager;
 
 namespace TetrisBlast.TetrisShapes
 {
@@ -23,6 +24,7 @@ namespace TetrisBlast.TetrisShapes
         public bool isLocated;
         public bool isSettleDown = false;
         public Sprite sprite;
+        public AudioSource dragSound;
        
         
         private Vector3 selectedPosition;
@@ -39,9 +41,13 @@ namespace TetrisBlast.TetrisShapes
         {
             if (mainGrid != null && failCore.Count == 0)
             {
+                isLocated = true;
+                isSettleDown = true;
                 Complete();
             }
-            
+
+            dragSound = GetComponent<AudioSource>();
+
         }
 
         public void NotifyCore(TetrisCore core, bool isSuccess = false)
@@ -81,6 +87,7 @@ namespace TetrisBlast.TetrisShapes
                         transform.position = mainGrid.transform.position;
                         isLocated = true;
                         isSettleDown = true;
+                        GridManager.GlobalAccess.dropSound.Play();
                         Complete();
                         position = transform.position;
                         allShapeColor = this.sprite;
@@ -116,7 +123,7 @@ namespace TetrisBlast.TetrisShapes
         {
             if (isLocated)
             return;
-            
+            dragSound.Play();
             isSelected = isSelect;
             selectedPosition = transform.position;
             //moveOffset = (selectedPosition - pos);
