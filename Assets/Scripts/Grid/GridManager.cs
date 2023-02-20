@@ -24,7 +24,8 @@ namespace TetrisBlast.Grid
       
 
         private GameObject currentGrid;
-        public int score;
+      
+        public int second;
         public AudioSource dropSound;
         
        
@@ -39,7 +40,11 @@ namespace TetrisBlast.Grid
         {
 
             dropSound = GetComponent<AudioSource>();
+           
+        }
 
+        public void Update()
+        {
         }
 
         public void ReBuild()
@@ -174,10 +179,11 @@ namespace TetrisBlast.Grid
             var selected = gridData.storage[key];
             Vector3 pos = Vector3.zero;
             pos.y = selected[0].transform.position.y;
+            Debug.Log("LineÇalıştı");
             pos.x = TetrisShape.GloballAccess.position.x;
             VfxManager.GloballAccess.Explosion(ExplosionDirection.Horizontal,pos);
             VfxManager.GloballAccess.explosionSound.Play();
-            score += 10;
+           GameManager.GloballAccess.AddScore(10);
             foreach (var VARIABLE in selected)
             {
                 VARIABLE.shapeCore.coreRenderer.sprite = TetrisShape.GloballAccess.allShapeColor;
@@ -191,7 +197,7 @@ namespace TetrisBlast.Grid
         void RowExplosion(Dictionary<int, List<GridCore>> grids)
         {
          
-            Debug.Log("Çalıştı");
+            
             foreach (var VARIABLE in grids)
             {
                 if (VARIABLE.Value.Count >= 9)
@@ -199,9 +205,10 @@ namespace TetrisBlast.Grid
                     Vector3 pos = Vector3.zero;
                     pos.x = VARIABLE.Value[0].transform.position.x;
                     pos.y = TetrisShape.GloballAccess.position.y;
+                    Debug.Log("RowÇalıştı");
                     VfxManager.GloballAccess.Explosion(ExplosionDirection.Vertical,pos);
                     VfxManager.GloballAccess.explosionSound.Play();
-                    score += 10;
+                    GameManager.GloballAccess.AddScore(10);
                     foreach (var grid in VARIABLE.Value)
                     {
                         grid.shapeCore.coreRenderer.sprite = TetrisShape.GloballAccess.allShapeColor;

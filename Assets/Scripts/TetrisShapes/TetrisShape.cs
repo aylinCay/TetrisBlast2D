@@ -39,7 +39,7 @@ namespace TetrisBlast.TetrisShapes
 
         public void Start()
         {
-            if (mainGrid != null && failCore.Count == 0)
+            if (mainGrid != null)
             {
                 isLocated = true;
                 isSettleDown = true;
@@ -77,7 +77,7 @@ namespace TetrisBlast.TetrisShapes
                  pos = Camera.main.ScreenToWorldPoint(inputPosition);
                 pos.z = 0f;
 
-                transform.position = Vector3.Lerp(transform.position, pos + moveOffset, .1f);
+                transform.position = Vector3.Lerp(transform.position, pos + moveOffset, .5f);
 
                 if (Input.GetButtonUp("Fire1"))
                 {

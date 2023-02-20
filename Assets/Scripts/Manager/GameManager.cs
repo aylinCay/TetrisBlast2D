@@ -10,38 +10,60 @@ namespace TetrisBlast.Manager
     using System.Collections;
     using System.Collections.Generic;
     using UnityEngine;
-    
+
 
     public class GameManager : MonoBehaviour
     {
+        public static GameManager GloballAccess;
         public List<GameObject> heartImage;
         public TetrisStorage tetris;
-        public int higScore;
         public GameObject scorePanel;
         public TextMeshProUGUI newScore;
         public TextMeshProUGUI highScoreText;
         public TextMeshProUGUI scoreTextPanel;
         public AudioSource buttonSound;
-        
-        public int Score
-        {
-            get => GridManager.GlobalAccess.score;
-        }
+        public TextMeshProUGUI secondText;
         public TextMeshProUGUI scoreText;
+        public int higScore;
+        private int _score;
+        private float _second = 120;
         
+        public void Awake()
+        {
+            GloballAccess = this;
+        }
+
+        public void Start()
+        {
+            buttonSound = GetComponent<AudioSource>();
+
+        }
+
+        public void Update()
+        {
+           CoutDown(1);
+        }
+
         public void NewShape()
         {
             if (tetris.heart < 2)
             {
                 tetris.heart++;
+                TetrisStorage.GloballAccess.shapeStroge.Remove(tetris.createShape);
                 Destroy(tetris.createShape);
                 tetris.CreateToShape();
                 heartImage[tetris.heart].SetActive(false);
                 buttonSound.Play();
+                CoutDown(10);
             }
             else
             {
-             ScoreUpdate();
+                ScoreUpdate();
+            }
+
+            if (_second < 1)
+            {
+                ScoreUpdate();
             }
             
         }
@@ -49,10 +71,10 @@ namespace TetrisBlast.Manager
         public void ScoreUpdate()
         {
             
-            if (Score > higScore)
+            if (_score > higScore)
             {
                 newScore.text = "NewScore";
-                higScore = Score;
+                higScore = _score;
                PlayerPrefs.SetInt("High Score" , higScore); 
 
             }
@@ -62,8 +84,10 @@ namespace TetrisBlast.Manager
             }
 
             highScoreText.text = PlayerPrefs.GetInt("High Score").ToString();
-            scoreTextPanel.text = Score.ToString();
+            scoreTextPanel.text = _score.ToString();
             scorePanel.SetActive(true);
+            _second = 0;
+
         }
 
         public void NextButton1()
@@ -76,16 +100,17 @@ namespace TetrisBlast.Manager
         {
             SceneManager.LoadScene(3);
         }
-        
 
-        public void Update()
+        public void CoutDown(float second)
         {
-            scoreText.text = Score.ToString();
+            _second -= Time.deltaTime * second;
+            secondText.text = _second.ToString("0");
         }
 
-        public void Start()
+        public void AddScore(int score)
         {
-            buttonSound = GetComponent<AudioSource>();
+            _score += score;
+            scoreText.text = _score.ToString();
         }
     }
 

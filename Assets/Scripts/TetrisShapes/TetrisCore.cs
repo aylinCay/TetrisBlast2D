@@ -21,12 +21,15 @@ namespace TetrisBlast.TetrisShapes
         public GridCore currentGridCore;
 
         public Coordinates gridInfo;
-            
+        
         RaycastHit2D hit;
         
         private LayerMask mask => ShapeManager.GloballAccess.coreLayerMask;
 
-      
+        public void Awake()
+        {
+            
+        }
 
         private void Start()
         {
@@ -37,9 +40,10 @@ namespace TetrisBlast.TetrisShapes
                 if (!parent.cores.Contains(this))
                     parent.cores.Add(this);
                 
-                if (!parent.isSelected && parent.isLocated)
+                if (parent.isLocated)
                 {
                     GridCheck();
+                    SetToGrid();
                 }
             }
         }
